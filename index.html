@@ -1,0 +1,45 @@
+<html>
+    <head></head>
+    <body>
+       
+           <input value="val1" name="val1" id="val1"/>
+           
+           <button id="data">AddData</button>
+           <form action="/addData" method="post">
+           <button id="showData">ShowData</button>
+        </form>
+        <div id="div"></div>
+        
+    </body>
+    <script>
+        let val1=document.getElementById("val1").value
+        let data=[];
+     data.addEventListener("click" ,()=>{
+        data.push(val1);
+     })
+
+        
+        
+        let showData=document.getElementById("showData");
+    
+        showData.addEventListener("click",async()=>{
+            let obj={
+                dat:data
+            }
+            try{
+                const response =await fetch("/addData",{
+                    method:"post",
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify(obj)
+                })
+                const da=await response.json();
+                console.log(da);
+                res.write(da);
+            }catch(err){
+                console.log("err")
+            }
+        })
+        </script>
+</html>
