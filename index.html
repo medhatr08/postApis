@@ -2,13 +2,7 @@
     <head></head>
     <body>
        
-           <input value="val1" name="val1" id="val1"/>
-           
-           <button id="data">AddData</button>
-           <form action="/addData" method="post">
-           <button id="showData">ShowData</button>
-        </form>
-        <div id="div"></div>
+          
         
     </body>
     <script>
@@ -27,7 +21,7 @@
                 dat:data
             }
             try{
-                const response =await fetch("/addData",{
+                const response =await fetch("https://postapis.onrender.com/addData",{
                     method:"post",
                     headers:{
                         "Content-Type":"application/json"
